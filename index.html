@@ -123,6 +123,9 @@ button{font:inherit;color:inherit;cursor:pointer}
 .explain .hint{background:#eef4ff;border-radius:10px;padding:6px 10px;font-size:13.5px;color:#27428a}
 .explain b{color:#c4560a}
 
+div.rules h5{margin:12px 0 4px;font-size:14px;color:var(--orange)}
+div.rules ul{margin:0;padding-left:20px;font-size:14px}
+div.rules li{margin:2px 0}
 details.rules summary{cursor:pointer;font-weight:800;font-size:15px}
 details.rules h5{margin:12px 0 4px;font-size:14px;color:var(--orange)}
 details.rules ul{margin:0;padding-left:20px;font-size:14px}
@@ -369,7 +372,7 @@ select{font:inherit;padding:5px 8px;border-radius:10px;border:2px solid var(--li
       <div class="no">15</div>
       <div>
         <h3>女生強化密技</h3>
-        <p>女生打球的強化技巧，附 29 支 Facebook 影片</p>
+        <p>女生打球的強化技巧，附 36 支影片</p>
       </div>
     </button>
     <button class="topic" id="goOth">
@@ -393,6 +396,12 @@ select{font:inherit;padding:5px 8px;border-radius:10px;border:2px solid var(--li
     <h2>場地與發接發規則</h2>
   </header>
 
+  <div class="seg tabs" id="segCourt">
+    <button data-v="A" class="on">示意圖</button>
+    <button data-v="B">發球規則</button>
+    <button data-v="C">BWF規則</button>
+  </div>
+  <div id="paneCtA">
   <div class="layout">
     <div class="stage">
       <div class="scoreboard" aria-live="polite">
@@ -446,32 +455,6 @@ select{font:inherit;padding:5px 8px;border-radius:10px;border:2px solid var(--li
         <p class="hint" id="exHint" hidden></p>
       </div>
 
-      <details class="card rules">
-        <summary>📘 規則重點（國際羽總 BWF）</summary>
-        <h5>場地尺寸</h5>
-        <ul>
-          <li>全長 13.40 m；雙打寬 6.10 m；單打寬 5.18 m（兩側各內縮 46 cm）。</li>
-          <li>球網在正中央；短發球線距網 1.98 m；雙打長發球線在底線內 76 cm。</li>
-          <li>中線從短發球線一直畫到底線，把發球區分成左右兩半。</li>
-        </ul>
-        <h5>單打發球區</h5>
-        <ul><li>又長又窄：短發球線 → 底線，中線 → 單打邊線。</li></ul>
-        <h5>雙打發球區</h5>
-        <ul><li>又短又寬：短發球線 → 雙打長發球線，中線 → 雙打邊線。</li></ul>
-        <h5>怎麼輪流發球</h5>
-        <ul>
-          <li>發球方的分數是偶數 → 站右邊發；奇數 → 站左邊發；一律對角發給對方。</li>
-          <li>發球方得分：同一人繼續發球，換到另一邊。</li>
-          <li>接發方得分：換他們發球，不換位置。</li>
-          <li>雙打：只有「發球方得分」時，該隊兩人才互換左右位置；接發方永遠不換位。</li>
-        </ul>
-        <h5>比賽結構</h5>
-        <ul>
-          <li>每球得分制，一局 21 分；20 平後要領先 2 分，30 分封頂（先得 30 分者勝）。</li>
-          <li>三局兩勝；一方先到 11 分時技術暫停 60 秒；局間休息最長 2 分鐘。</li>
-          <li>每局結束要換邊；決勝局（第 3 局）有一方先到 11 分時也要換邊。</li>
-        </ul>
-      </details>
     </div>
   </div>
 
@@ -480,6 +463,62 @@ select{font:inherit;padding:5px 8px;border-radius:10px;border:2px solid var(--li
     <button class="btn win B" id="btnWinB"></button>
     <button class="btn ghost" id="btnUndo" aria-label="上一步">↶<small>上一步</small></button>
     <button class="btn ghost" id="btnReset" aria-label="重新開始">↻<small>重新開始</small></button>
+  </div>
+  </div>
+  <div id="paneCtB" hidden>
+    <div class="card gcard">
+      <h3>發球規則與常見錯誤</h3>
+      <p class="gintro">羽球發球必須由發球方從對應的左、右發球區將球斜向發至對手斜對角發球區，擊球時整顆球高度不得超過 1.15 公尺（部分業餘或舊規視賽前約定為腰部以下），且雙腳須保持著地、球拍先擊中球托。</p>
+    </div>
+    <div class="card gcard">
+      <h3>站位與發球順序</h3>
+      <ul><li><b>右偶左奇：</b>發球方得分為 0 或偶數時，從右發球區發球；得分為奇數時，從左發球區發球。</li><li><b>斜對角發球：</b>球必須越過球網，落在斜對角的接發球區內（含界線）。</li><li><b>雙打發球區：</b>依發球方得分奇偶決定由右邊或左邊球員發球；發球後第一拍只能由斜對角的接發球員擊球。</li><li><b>單打與雙打界線：</b>單打發球區「窄而長」（內側窄邊線、外側長底線）；雙打發球區「寬而短」（外側寬邊線、內側短發球線）。</li></ul>
+    </div>
+    <div class="card gcard">
+      <h3>發球動作與高度限制</h3>
+      <ul><li><b>高度限制：</b>BWF 現行規則要求擊球瞬間，整顆羽球高度必須在 1.15 公尺以下。</li><li><b>擊球部位：</b>球拍必須先擊中軟木塞球托，不得先碰到羽毛。</li><li><b>雙腳著地：</b>發球全程雙腳須接觸地面，不可抬起、墊步或拖動，亦不得踩踏發球區界線。</li><li><b>動作流暢：</b>球拍開始向前揮動即視為發球開始，須連續完成且不可停頓；釋放球前不得預先旋轉羽球，也不得在對手未就緒時發球。</li></ul>
+    </div>
+    <div class="card gcard">
+      <h3>常見發球違例與特例</h3>
+      <ul><li><b>發球擦網：</b>發球觸網後只要落在正確發球區內，仍屬合法好球，比賽繼續。</li><li><b>常見犯規：</b>擊球超高、雙腳離地或踩線、先碰羽毛、揮拍未擊中球、故意拖延或晃動假動作。</li><li><b>失分後果：</b>發球方違例由接發球方得分並取得發球權；接發球方違例則由發球方得分。</li></ul>
+    </div>
+    <h3 class="vidh">▶ 教學影片（2 支）</h3>
+    <a class="vidlink" href="https://youtu.be/cpOmXeqeIBk?si=Dq5fhA60euuXlgwc" target="_blank" rel="noopener noreferrer">
+      <span class="play">▶</span>
+      <span><b>1. 新手必看!羽球發球動作及單打規則</b><br><span class="ch">頻道：樂體育 Luv sports Media</span><br><span class="u">https://youtu.be/cpOmXeqeIBk?si=Dq5fhA60euuXlgwc</span></span>
+    </a>
+    <a class="vidlink" href="https://www.facebook.com/share/r/1ECuduTZRV/" target="_blank" rel="noopener noreferrer">
+      <span class="play">▶</span>
+      <span><b>2. Facebook Reels 影片</b><br><span class="u">https://www.facebook.com/share/r/1ECuduTZRV/</span></span>
+    </a>
+  </div>
+  <div id="paneCtC" hidden>
+    <div class="card rules">
+      <h3 style="margin:0 0 4px;font-size:18px">📘 規則重點（國際羽總 BWF）</h3>
+      <h5>場地尺寸</h5>
+      <ul>
+        <li>全長 13.40 m；雙打寬 6.10 m；單打寬 5.18 m（兩側各內縮 46 cm）。</li>
+        <li>球網在正中央；短發球線距網 1.98 m；雙打長發球線在底線內 76 cm。</li>
+        <li>中線從短發球線一直畫到底線，把發球區分成左右兩半。</li>
+      </ul>
+      <h5>單打發球區</h5>
+      <ul><li>又長又窄：短發球線 → 底線，中線 → 單打邊線。</li></ul>
+      <h5>雙打發球區</h5>
+      <ul><li>又短又寬：短發球線 → 雙打長發球線，中線 → 雙打邊線。</li></ul>
+      <h5>怎麼輪流發球</h5>
+      <ul>
+        <li>發球方的分數是偶數 → 站右邊發；奇數 → 站左邊發；一律對角發給對方。</li>
+        <li>發球方得分：同一人繼續發球，換到另一邊。</li>
+        <li>接發方得分：換他們發球，不換位置。</li>
+        <li>雙打：只有「發球方得分」時，該隊兩人才互換左右位置；接發方永遠不換位。</li>
+      </ul>
+      <h5>比賽結構</h5>
+      <ul>
+        <li>每球得分制，一局 21 分；20 平後要領先 2 分，30 分封頂（先得 30 分者勝）。</li>
+        <li>三局兩勝；一方先到 11 分時技術暫停 60 秒；局間休息最長 2 分鐘。</li>
+        <li>每局結束要換邊；決勝局（第 3 局）有一方先到 11 分時也要換邊。</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -500,6 +539,31 @@ select{font:inherit;padding:5px 8px;border-radius:10px;border:2px solid var(--li
     </button>
     <p class="cap">圖片：台灣羽球推廣協會羽球程度分級制度（圖上標示 21.04.19 更新）。點圖片可放大查看。</p>
   </div>
+  <h3 class="vidh">▶ 程度參考影片（6 支）</h3>
+  <a class="vidlink" href="https://youtu.be/7gzb94k5QZ4?si=rU_drN4XEwpHFiah" target="_blank" rel="noopener noreferrer">
+    <span class="play">▶</span>
+    <span><b>1. 你知道自己的羽球程度嗎?#羽球#羽球程度測試#羽球模擬賽</b><br><span class="ch">頻道：樂體育 Luv sports Media</span><br><span class="u">https://youtu.be/7gzb94k5QZ4?si=rU_drN4XEwpHFiah</span></span>
+  </a>
+  <a class="vidlink" href="https://youtu.be/L9ZEKaKWMOc?si=inEbtIZ73V83QWF3" target="_blank" rel="noopener noreferrer">
+    <span class="play">▶</span>
+    <span><b>2. 權威參照-羽球初階4-6級程度參考影片#羽球#台灣羽球推廣協會#羽球程度#羽球等級</b><br><span class="ch">頻道：樂體育 Luv sports Media</span><br><span class="u">https://youtu.be/L9ZEKaKWMOc?si=inEbtIZ73V83QWF3</span></span>
+  </a>
+  <a class="vidlink" href="https://youtu.be/LHy-5h-_I2w?si=K-YuAidIzta10P_U" target="_blank" rel="noopener noreferrer">
+    <span class="play">▶</span>
+    <span><b>3. 權威參照-業餘羽球中階6-8級程度參考影片#羽球#台灣羽球推廣協會#羽球程度#林輝煌#羽球等級</b><br><span class="ch">頻道：樂體育 Luv sports Media</span><br><span class="u">https://youtu.be/LHy-5h-_I2w?si=K-YuAidIzta10P_U</span></span>
+  </a>
+  <a class="vidlink" href="https://youtu.be/VplPMREnjAc?si=GS1SqNfjYjyMp4Bb" target="_blank" rel="noopener noreferrer">
+    <span class="play">▶</span>
+    <span><b>4. 權威參照-業餘羽球中進階10-12級程度參考影片#羽球#台灣羽球推廣協會#羽球等級# 羽球程度</b><br><span class="ch">頻道：樂體育 Luv sports Media</span><br><span class="u">https://youtu.be/VplPMREnjAc?si=GS1SqNfjYjyMp4Bb</span></span>
+  </a>
+  <a class="vidlink" href="https://youtu.be/lvckdVFM3kk?si=XcxGx6tJFxVf5EAL" target="_blank" rel="noopener noreferrer">
+    <span class="play">▶</span>
+    <span><b>5. 高手的世界-13級以上高階混雙#蔡宇傑#張育甄#彭莉庭#徐以倫#森.黑武士羽球隊#森利人集團#Aurastro#快羽會館</b><br><span class="ch">頻道：樂體育 Luv sports Media</span><br><span class="u">https://youtu.be/lvckdVFM3kk?si=XcxGx6tJFxVf5EAL</span></span>
+  </a>
+  <a class="vidlink" href="https://youtu.be/Ktx_2w_rwIs?si=Taqu_1WPN_Nzpocw" target="_blank" rel="noopener noreferrer">
+    <span class="play">▶</span>
+    <span><b>6. 殘酷真相-羽球程度差三級,落差會有多大#羽球#羽球程度分級#南崁羽球館#火星計畫筋膜槍</b><br><span class="ch">頻道：樂體育 Luv sports Media</span><br><span class="u">https://youtu.be/Ktx_2w_rwIs?si=Taqu_1WPN_Nzpocw</span></span>
+  </a>
   </div>
 
 <div id="paneEt" class="etq" hidden>
@@ -775,6 +839,10 @@ select{font:inherit;padding:5px 8px;border-radius:10px;border:2px solid var(--li
     <span class="play">▶</span>
     <span><b>7. 99%羽球女生没学过的羽毛球轮转套路</b><br><span class="ch">頻道：拉夫堡小帅</span><br><span class="u">https://youtu.be/SwYi2HwweS4?si=9Yl6606IchXJaxCS</span></span>
   </a>
+  <a class="vidlink" href="https://youtu.be/D-cwdYt9XdA?si=zUnbEG8LNUacVkQ8" target="_blank" rel="noopener noreferrer">
+    <span class="play">▶</span>
+    <span><b>8. 球不是亂打的-職業級混雙球路分享#羽球#混雙#森.黑武士#森利人集團#Aurastro#火星計畫BoosterMINI3</b><br><span class="ch">頻道：樂體育 Luv sports Media</span><br><span class="u">https://youtu.be/D-cwdYt9XdA?si=zUnbEG8LNUacVkQ8</span></span>
+  </a>
   <p class="gnote">影片標題與頻道名稱取自 YouTube 影片頁；圖文說明之後可再補充。</p>
 </section>
 
@@ -964,7 +1032,7 @@ select{font:inherit;padding:5px 8px;border-radius:10px;border:2px solid var(--li
     <button class="back" id="btnBack15">← 主題</button>
     <h2>女生強化密技</h2>
   </header>
-  <p class="gnote" style="margin:4px 4px 10px">共 29 支 Facebook 影片，點一下會在新分頁（或 Facebook App）開啟。標題由你提供（部分截圖標題被截斷，以截圖可見的文字為準）。</p>
+  <p class="gnote" style="margin:4px 4px 10px">共 36 支 Facebook 影片，點一下會在新分頁（或 Facebook App）開啟。標題由你提供（部分截圖標題被截斷，以截圖可見的文字為準）。</p>
   <a class="vidlink" href="https://www.facebook.com/share/v/1ECJTKQ1on/" target="_blank" rel="noopener noreferrer">
     <span class="play">▶</span>
     <span><b>1. 一直改不掉掄大臂，就是因為沒搞懂發力時機</b><br><span class="u">https://www.facebook.com/share/v/1ECJTKQ1on/</span></span>
@@ -1080,6 +1148,34 @@ select{font:inherit;padding:5px 8px;border-radius:10px;border:2px solid var(--li
   <a class="vidlink" href="https://www.facebook.com/share/v/1FqcHnUeJP/" target="_blank" rel="noopener noreferrer">
     <span class="play">▶</span>
     <span><b>29. 雙打總被人偷后場怎么辦？</b><br><span class="u">https://www.facebook.com/share/v/1FqcHnUeJP/</span></span>
+  </a>
+  <a class="vidlink" href="https://www.facebook.com/share/r/1CMMaLUfKL/" target="_blank" rel="noopener noreferrer">
+    <span class="play">▶</span>
+    <span><b>30. 反手抽對角</b><br><span class="u">https://www.facebook.com/share/r/1CMMaLUfKL/</span></span>
+  </a>
+  <a class="vidlink" href="https://www.facebook.com/share/r/1Mj5vX6rZD/" target="_blank" rel="noopener noreferrer">
+    <span class="play">▶</span>
+    <span><b>31. 四點練習</b><br><span class="u">https://www.facebook.com/share/r/1Mj5vX6rZD/</span></span>
+  </a>
+  <a class="vidlink" href="https://www.facebook.com/share/r/18j8wiU6rc/" target="_blank" rel="noopener noreferrer">
+    <span class="play">▶</span>
+    <span><b>32. 反手勾對角</b><br><span class="u">https://www.facebook.com/share/r/18j8wiU6rc/</span></span>
+  </a>
+  <a class="vidlink" href="https://www.facebook.com/share/r/1AGRak6QFk/" target="_blank" rel="noopener noreferrer">
+    <span class="play">▶</span>
+    <span><b>33. 反手放短球</b><br><span class="u">https://www.facebook.com/share/r/1AGRak6QFk/</span></span>
+  </a>
+  <a class="vidlink" href="https://www.facebook.com/share/r/19FpbjBC8d/" target="_blank" rel="noopener noreferrer">
+    <span class="play">▶</span>
+    <span><b>34. 馬來步</b><br><span class="u">https://www.facebook.com/share/r/19FpbjBC8d/</span></span>
+  </a>
+  <a class="vidlink" href="https://youtu.be/5qpyARsFeGY?si=c4FXxQnyuvX7XNYV" target="_blank" rel="noopener noreferrer">
+    <span class="play">▶</span>
+    <span><b>35. 實境式羽球教學課程-如何打好反手平抽球#羽球#羽球教學#反手平抽球#教練就在你邊#高飛羽球訓練中心#樊允安</b><br><span class="ch">頻道：樂體育 Luv sports Media</span><br><span class="u">https://youtu.be/5qpyARsFeGY?si=c4FXxQnyuvX7XNYV</span></span>
+  </a>
+  <a class="vidlink" href="https://www.facebook.com/share/v/1NJWNz1c77/" target="_blank" rel="noopener noreferrer">
+    <span class="play">▶</span>
+    <span><b>36. 反手沒勁</b><br><span class="u">https://www.facebook.com/share/v/1NJWNz1c77/</span></span>
   </a>
 </section>
 <section id="oth" class="screen" hidden>
@@ -1629,6 +1725,13 @@ function route(){
 $('#goCourt').addEventListener('click',()=>{ location.hash='court'; });
 $('#goLevel').addEventListener('click',()=>{ location.hash='level'; });
 $('#btnBack').addEventListener('click',()=>{ location.hash='home'; });
+$('#segCourt').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  document.querySelectorAll('#segCourt button').forEach(x=>x.classList.toggle('on',x===b));
+  $('#paneCtA').hidden=b.dataset.v!=='A'; $('#paneCtB').hidden=b.dataset.v!=='B'; $('#paneCtC').hidden=b.dataset.v!=='C';
+  if(b.dataset.v==='A') render();
+  window.scrollTo(0,0);
+});
 $('#goGrip').addEventListener('click',()=>{ location.hash='grip'; });
 $('#btnBack4').addEventListener('click',()=>{ location.hash='home'; });
 $('#segGrip').addEventListener('click',e=>{
